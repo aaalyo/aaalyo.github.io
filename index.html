@@ -8,7 +8,7 @@
 
 
 <body class="text-center">
-    <div class="picture"></div>
+    <div class="picture" id="picture"></div>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
@@ -18,16 +18,17 @@
         </header>
 
         <main role="main" class="inner cover">
-            <h1 class="cover-heading">Куда мы идем сегодня завтракать?</h1>
+            <h1 class="cover-heading" id="cover-heading">Куда мы идем сегодня завтракать?</h1>
 
 
-            <p class="lead">Ты сегодня толстый?</p>
+            <p id="question" class="lead">Ты сегодня толстый?</p>
 
-            <button type="button" class="btn-lg btn-danger" onclick="document.getElementById ('text').innerHTML= 'Едим дома гречку!'">Да</button>
-            <button type=" button " class="btn-lg btn-danger" onclick="document.getElementById ('text').innerHTML= 'В Макдак!'">Нет</button>
+            <button type="button" id="wrong" class="btn-lg btn-danger" onclick="onyes()">Да</button>
+            <button type=" button " id="not" class="btn-lg btn-danger" onclick="onno()">Нет</button>
 
             <div id="text" class="text"></div>
             </p>
+            <div class="bea"></div>
         </main>
 
 
@@ -38,7 +39,126 @@
             </div>
         </footer>
     </div>
+    <script>
+        const questions = [{
+                text: 'Ты сегодня тостый?',
+                yes: 'a',
+                no: 'b'
+            }, {
+                text: 'А жена толстая?',
+                yes: 'c',
+                no: 'd'
 
+            },
+
+            {
+                text: 'Ты сегодня богатый?',
+                yes: 'e',
+                no: 'f'
+            }, {
+                text: 'А жена у тебя транжира?',
+                yes: 'g',
+                no: 'h'
+
+            }, {
+                text: 'А ребенок у нас хорошо питается?',
+                yes: 'i',
+                no: 'k'
+            }
+        ]
+        let answers = [];
+
+        let questionNumber = 0;
+
+        let finish = false;
+
+
+        function showQuestion(n) {
+
+            if (n === 1 || n === 3) {
+                document.getElementById('wrong').style.display = "none"
+
+            } else {
+                document.getElementById('wrong').style.display = "initial"
+            }
+            if (n < questions.length) {
+                document.getElementById('question').innerHTML = questions[n].text;
+                questionNumber = n;
+            } else {
+                finish = true;
+                if (answers.toString() === 'b,d,e,h,i') {
+                    document.getElementById('text').innerHTML = 'Едем в Bea Basil';
+                    document.body.style.backgroundImage = "url(bea.jpg)";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                } else if (answers.toString() === 'b,d,f,h,k') {
+                    document.getElementById('text').innerHTML = 'Едем в Макдак';
+                    document.body.style.backgroundImage = "url(mc.png)";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                } else if (answers.toString() === 'a,d,f,h,k') {
+                    document.getElementById('text').innerHTML = 'Варим дома гречку. Без масла. Потому что дорого.';
+                    document.body.style.backgroundImage = "url(gr.jpg)";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                } else if (answers.toString() === 'b,d,e,h,k') {
+                    document.getElementById('text').innerHTML = 'Едем в Sky';
+                    document.body.style.backgroundImage = "url(bea.jpg)";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                } else if (answers.toString() === 'b,d,f,h,i') {
+                    document.getElementById('text').innerHTML = 'Идем в Fika';
+                    document.body.style.backgroundImage = "url(fika.jpg)";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                } else {
+                    document.getElementById('text').innerHTML = 'Да хер его знает.';
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('question').style.display = "none";
+                    document.getElementById('cover-heading').style.display = "none";
+                    document.getElementById('wrong').style.display = "none";
+                    document.getElementById('not').style.display = "none"
+                }
+
+            }
+        }
+
+        showQuestion(0)
+
+        function onyes() {
+
+
+            if (!finish) {
+                answers.push(questions[questionNumber].yes);
+                showQuestion(questionNumber + 1);
+            }
+
+
+
+        }
+
+        function onno() {
+            if (!finish) {
+                answers.push(questions[questionNumber].no);
+                showQuestion(questionNumber + 1);
+            }
+        }
+    </script>
 </body>
 
 </html>
