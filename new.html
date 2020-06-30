@@ -1,0 +1,44 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="breakfast.css">
+</head>
+
+
+<body class="text-center">
+    <div class="picture"></div>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <nav class="nav nav-masthead justify-content-center">
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+            <h1 class="cover-heading">Куда мы идем сегодня завтракать?</h1>
+
+
+            <p class="lead">Ты сегодня толстый?</p>
+
+            <button type="button" class="btn-lg btn-danger" onclick="document.getElementById ('text').innerHTML= 'Едим дома гречку!'">Да</button>
+            <button type=" button " class="btn-lg btn-danger" onclick="document.getElementById ('text').innerHTML= 'В Макдак!'">Нет</button>
+
+            <div id="text" class="text"></div>
+            </p>
+        </main>
+
+
+
+        <footer class="mastfoot mt-auto ">
+            <div class="inner ">
+
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-color: #7C7CD5;
+    background-image: url(croissant-coffee.png);
+    background-position-x: 644px;
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.lead {
+    font-size: 40px;
+    line-height: 80px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.cover-heading {
+    font-size: 64px;
+    line-height: 100px;
+    color: #FFFFFF;
+}
+
+.text {
+    font-size: 40px;
+    line-height: 80px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
